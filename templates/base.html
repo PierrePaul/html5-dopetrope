@@ -1,0 +1,237 @@
+
+<!DOCTYPE HTML>
+<!--
+	Dopetrope 2.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		{% block head %}
+			<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta charset="utf-8" />
+			{% if FEED_ALL_ATOM %}
+			<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+			{% endif %}
+			{% if FEED_ALL_RSS %}
+			<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+			{% endif %}
+			{% if FEED_ATOM %}
+			<link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+			{% endif %}
+			{% if FEED_RSS %}
+			<link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+			{% endif %}
+			{% if CATEGORY_FEED_ATOM and category %}
+			<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+			{% endif %}
+			{% if CATEGORY_FEED_RSS and category %}
+			<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+			{% endif %}
+			{% if TAG_FEED_ATOM and tag %}
+			<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+			{% endif %}
+			{% if TAG_FEED_RSS and tag %}
+			<link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+			{% endif %}
+			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+				<link rel="stylesheet" href="/theme/css/pygment.css" />
+			<noscript>
+				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
+				<link rel="stylesheet" href="/theme/css/style.css" />
+				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+			</noscript>
+		{% endblock head %}
+	</head>
+	<body class="no-sidebar">
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<section id="header">
+									
+									<!-- Logo -->
+									<h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+									
+									<!-- Nav -->
+										<nav id="nav">
+											<ul>
+												{% for title, link in MENUITEMS %}
+														<li><a href="{{ link }}">{{ title }}</a></li>
+												{% endfor %}
+												{% if DISPLAY_PAGES_ON_MENU %}
+													{% for p in PAGES %}
+														<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+													{% endfor %}
+												{% else %}
+													{% if DISPLAY_CATEGORIES_ON_MENU %}
+														{% for cat, null in categories %}
+															<li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+														{% endfor %}
+													{% endif %}
+												{% endif %}
+											</ul>
+										</nav>
+
+								</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="container">
+					{% block content %}
+					{% endblock %}
+
+				</div>
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header>
+										<h2>Latest articles</h2>
+									</header>
+									<ul class="dates">
+									{% for article in articles %}
+										<li>
+											<span class="date">{{ article.date|strftime('%b') }} <strong>{{ article.date|strftime('%d') }}</strong></span>
+											<h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+											<p>{{ article.summary }}</p>
+										</li>
+									{% endfor %}
+									</ul>
+								</section>
+							</div>
+							{% if ABOUT_TEXT is defined or ABOUT_IMAGE is defined or ABOUT_LINK is defined %}
+								<div class="4u">
+									<section>
+										<header>
+											<h2>What's this all about?</h2>
+										</header>
+										{% if ABOUT_LINK is defined %}
+											<a href="{{ ABOUT_LINK }}" class="image image-full"><img src="{{ ABOUT_IMAGE }}" alt="" /></a>
+										{% else %}
+											<img src="{{ ABOUT_IMAGE }}" class="image image-full" alt="" />
+										{% endif %}
+										<p>
+										{{ ABOUT_TEXT }}
+										</p>
+										<footer>
+											{% if ABOUT_LINK is defined %}
+												<a href="{{ ABOUT_LINK }}" class="button">Find out more</a>
+											{% endif %}
+										</footer>
+									</section>
+								</div>
+							{% endif %}
+						</div>
+						<div class="row">
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Blogroll</h2>
+									</header>
+									<ul class="divided">
+										{% for name, link in LINKS %}
+											<li><a href="{{ link }}">{{ name }}</a></li>
+										{% endfor %}
+									</ul>
+								</section>
+							</div>
+							{% if categories is defined %}
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Categories</h2>
+									</header>
+									<ul class="divided">
+										{% for cat, null in categories %}
+											<li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+										{% endfor %}
+									</ul>
+								</section>
+							</div>
+							{% endif %}
+							<div class="4u">
+							
+								<section>
+									<header>
+										<h2>Contact</h2>
+									</header>
+									<ul class="social">
+										{% if FACEBOOK_USER %}
+											<li class="facebook"><a href="https://www.facebook.com/{{ FACEBOOK_USER }}" class="icon48 icon48-1">Facebook</a></li>
+										{% endif %}
+										{% if TWITTER_USER is defined %}
+											<li class="twitter"><a href="http://twitter.com/{{ TWITTER_USER }}" class="icon48 icon48-2">Twitter</a></li>
+										{% endif %}
+										{% if LINKEDIN_USER %}
+										<li class="linkedin"><a href="http://www.linkedin.com/pub/{{ LINKEDIN_USER }}" class="icon48 icon48-4">LinkedIn</a></li>
+										{% endif %}
+										{% if GOOGLEPLUS_USER %}
+											<li class="googleplus"><a href="https://plus.google.com/{{ GOOGLEPLUS_USER }}" class="icon48 icon48-6">Google+</a></li>
+										{% endif %}
+									</ul>
+									{% if ADDRESS is defined or MAIL is defined or PHONE is defined %}
+									<ul class="contact">
+										{% if ADDRESS is defined %}
+										<li>
+											<h3>Address</h3>
+											<p>
+												{{ ADDRESS }}
+											</p>
+										</li>
+										{% endif %}
+										{% if MAIL is defined %}
+											<li>
+												<h3>Mail</h3>
+												<p><a href="mailto:{{ MAIL }}">{{ MAIL }}</a></p>
+											</li>
+										{% endif %}
+										{% if PHONE %}
+											<li>
+												<h3>Phone</h3>
+												<p>{{ PHONE }}</p>
+											</li>
+										{% endif %}
+									</ul>
+									{% endif %}
+								</section>
+							</div>
+						</div>
+						{% if COPYRIGHT is defined and SHOW_COPYRIGHT != False %}
+						<div class="row">
+							<div class="12u">
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; {{ COPYRIGHT }}	</li>
+											<li>Images: <a href="http://facebook.com/DreametryDoodle">Dreametry Doodle</a> + <a href="http://iconify.it">Iconify.it</a></li>
+											<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+							</div>
+						</div>
+						{% endif %}
+					</section>
+			</div>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.js"></script>
+		<script src="/theme/js/config.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-panels.min.js"></script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+	</body>
+</html>

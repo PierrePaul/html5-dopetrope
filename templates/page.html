@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+	<div class="12u">
+		<!-- Portfolio -->
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<a href="#" class="image image-full"><img src="{{ page.picture }}"/></a>
+									{{ page.content }}
+								</article>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
+</div>
+{% endblock %}

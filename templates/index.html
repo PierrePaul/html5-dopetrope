@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+<div class="12u">
+    <section>
+        <div class="row">
+            {% for article in articles %}
+            <div class="4u">
+                <section class="box">
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="image image-full"><img src="{{ article.picture }}" alt=""/></a>
+                    <header>
+                        <h3>{{article.title }}</h3>
+                        <span class="byline">{{ article.date }}</span>
+                    </header>
+                    {{ article.summary }}
+                    <footer class="actions">
+                        <a href="{{ SITEURL }}/{{ article.url }}" class="button button-icon button-icon-1">Continue Reading</a>
+                    </footer>
+                </section>
+            </div>
+            {% endfor %}
+        </div>
+    </section><!-- /#content -->
+</div>
+</div>
+{% endblock content %}
