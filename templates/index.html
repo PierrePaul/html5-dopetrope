@@ -3,23 +3,28 @@
 <div class="row">
 <div class="12u">
     <section>
-        <div class="row">
-            {% for article in articles_page.object_list %}
-            <div class="4u">
-                <section class="box">
-                    <a href="{{ SITEURL }}/{{ article.url }}" class="image image-full"><img src="{{ SITEURL }}/{{ article.picture }}" alt=""/></a>
-                    <header>
-                        <h3>{{article.title }}</h3>
-                        <span class="byline">{{ article.date }}</span>
-                    </header>
-                    {{ article.summary }}
-                    <footer class="actions">
-                        <a href="{{ SITEURL }}/{{ article.url }}" class="button button-icon button-icon-1">Continue Reading</a>
-                    </footer>
-                </section>
+        {% for article in articles_page.object_list %}
+            {% if loop.index0 % 3  == 0 %}
+            <div class="row">
+            {% endif %}
+                <div class="4u">
+                    <section class="box">
+                        <a href="{{ SITEURL }}/{{ article.url }}" class="image image-full"><img src="{{ SITEURL }}/{{ article.picture }}" alt=""/></a>
+                        <header>
+                            <h3>{{article.title }}</h3>
+                            <span class="byline">{{ article.date }}</span>
+                        </header>
+                        {{ loop.index }} -- {{ loop.index0 }}
+                        {{ article.summary }}
+                        <footer class="actions">
+                            <a href="{{ SITEURL }}/{{ article.url }}" class="button button-icon button-icon-1">Continue Reading</a>
+                        </footer>
+                    </section>
+                </div>
+            {% if loop.index % 3  == 0 %}
             </div>
-            {% endfor %}
-        </div>
+            {% endif %}
+        {% endfor %}
         {% if DEFAULT_PAGINATION %}
             <p class="paginator">
                 {% if articles_page.has_previous() %}
