@@ -13,8 +13,12 @@
 									<div class="post-infos">
 										<ul class="tags">
 											{% if article.category %}
-											<li><a class="button" href="{{ article.category.url }}">{{ article.category }}</a></li>
+											<li><a class="button" href="{{ article.category.url }}">{{ article.category|capitalize }}</a></li>
 											{% endif %}
+											{% for tag in article.tags %}
+												<li><a class="button button-alt" href="{{ tag.url }}">{{ tag|capitalize }}</a></li>
+
+											{% endfor %}
 										</ul>
 									</div>
 
@@ -22,6 +26,7 @@
 									<h2>{{ article.title }}</h2>
 									{{ article.content }}
 								</article>
+								{% include 'disqus_script.html' %}
 						</div>
 					</div>
 				</div>
