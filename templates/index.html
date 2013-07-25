@@ -7,7 +7,7 @@
             {% for article in articles %}
             <div class="4u">
                 <section class="box">
-                    <a href="{{ SITEURL }}/{{ article.url }}" class="image image-full"><img src="{{ article.picture }}" alt=""/></a>
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="image image-full"><img src="{{ SITEURL }}/{{ article.picture }}" alt=""/></a>
                     <header>
                         <h3>{{article.title }}</h3>
                         <span class="byline">{{ article.date }}</span>

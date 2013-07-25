@@ -121,9 +121,9 @@
 											<h2>What's this all about?</h2>
 										</header>
 										{% if ABOUT_LINK is defined %}
-											<a href="{{ ABOUT_LINK }}" class="image image-full"><img src="{{ ABOUT_IMAGE }}" alt="" /></a>
+											<a href="{{ ABOUT_LINK }}" class="image image-full"><img src="{{ SITEURL }}/{{ ABOUT_IMAGE }}" alt="" /></a>
 										{% else %}
-											<img src="{{ ABOUT_IMAGE }}" class="image image-full" alt="" />
+											<img src="{{ SITEURL }}/{{ ABOUT_IMAGE }}" class="image image-full" alt="" />
 										{% endif %}
 										<p>
 										{{ ABOUT_TEXT }}

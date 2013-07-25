@@ -706,3 +706,27 @@
 			border-radius: 5px;
 			margin: 0;
 		}
+
+.img-copy {
+	float:right;
+	margin-right:2em;
+}
+
+article .date {
+	color: white;
+	float:left;
+	font-weight: bold;
+	font-size: 1em;
+	text-align:center;
+	margin-right: 2em;
+}
+
+article .post-infos {
+  float: right;
+	overflow: hidden;
+}
+
+article .post-infos .tags li {
+	float: left;
+	margin: 0 0.25em;
+}
