@@ -730,3 +730,8 @@ article .post-infos .tags li {
 	float: left;
 	margin: 0 0.25em;
 }
+
+article em {
+  font-style: italic;
+  font-weight: bold;
+}

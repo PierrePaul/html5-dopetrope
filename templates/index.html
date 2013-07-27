@@ -25,6 +25,7 @@
             {% endif %}
         {% endfor %}
         {% if DEFAULT_PAGINATION %}
+    </section><!-- /#content -->
             <p class="paginator">
                 {% if articles_page.has_previous() %}
                     {% if articles_page.previous_page_number() == 1 %}
@@ -39,7 +40,6 @@
                 {% endif %}
             </p>
         {% endif %}
-    </section><!-- /#content -->
 </div>
 </div>
 {% endblock content %}
