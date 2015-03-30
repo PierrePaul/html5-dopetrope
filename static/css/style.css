@@ -288,6 +288,34 @@
 			margin: 0 2em 2em 0;
 		}
 
+
+        /* figure */
+                .floatright, .align-right {
+                    float: right;
+                }
+
+                .floatleft, .align-left {
+                    float: left;
+                }
+
+                .floatcenter, .align-center {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                figure.floatright, .align-right {
+                    margin-left: 4px;
+                }
+
+                figure.floatleft, .align-left {
+                    margin-right: 4px;
+                }
+
+                figure.floatcenter, .align-center {
+                    margin-bottom: 11px;
+                }
+
 	/* Is-* */
 	
 		.is-post
