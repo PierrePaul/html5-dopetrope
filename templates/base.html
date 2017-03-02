@@ -44,19 +44,27 @@
 			</noscript>
 		{% endblock head %}
 	</head>
+<!-- style block to show the square for common lists <li>, the other lists
+ objects, like dropdown, tags, blogroll...Will not be affect -->
+<style>
+ul.simple {
+	list-style-type: square;
+}
+</style>
+<!-- end of style block -->
 	<body class="no-sidebar">
 		<!-- Header Wrapper -->
 			<div id="header-wrapper">
 				<div class="container">
 					<div class="row">
 						<div class="12u">
-						
+
 							<!-- Header -->
 								<section id="header">
-									
+
 									<!-- Logo -->
 									<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
-									
+
 									<!-- Nav -->
 										<nav id="nav">
 											<ul>
@@ -83,7 +91,7 @@
 					</div>
 				</div>
 			</div>
-		
+
 		<!-- Main Wrapper -->
 			<div id="main-wrapper">
 				<div class="container">
@@ -165,7 +173,7 @@
 							</div>
 							{% endif %}
 							<div class="4u">
-							
+
 								<section>
 									<header>
 										<h2>Contact</h2>
