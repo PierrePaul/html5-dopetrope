@@ -374,7 +374,7 @@
 			{
 				position: relative;
 				border-top: solid 1px #ddd;
-				padding: 1.3em 0 1.3em 6.75em;
+				padding: 1.3em 0 1.3em 10.75em;
 			}
 
 			ul.dates .date
@@ -391,6 +391,7 @@
 				border-top-left-radius: 5px;
 				border-bottom-left-radius: 5px;
 				padding: 0.5em 0.75em 0 1em;
+				max-width: 135px;
 			}
 
 				ul.dates .date:after
