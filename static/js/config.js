@@ -6,7 +6,7 @@
 
 window._skel_config = {
 	preset: 'standard',
-	prefix: '/theme/css/style',
+	prefix: window.SITEURL+'/theme/css/style',
 	resetCSS: true,
 	breakpoints: {
 		'desktop': {
