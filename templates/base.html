@@ -58,7 +58,11 @@
 								<section id="header">
 
 									<!-- Logo -->
-									<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+									{% if SITELOGO %}
+										<h1><a href="{{ SITEURL }}/"><img src="{{ SITELOGO }}" title="{{ SITENAME }}"></img></a></h1>
+									{% else %}
+										<h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+									{% endif %}
 
 									<!-- Nav -->
 										<nav id="nav">
@@ -70,12 +74,11 @@
 													{% for p in pages %}
 														<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
 													{% endfor %}
-												{% else %}
-													{% if DISPLAY_CATEGORIES_ON_MENU %}
+												{% endif %}
+												{% if DISPLAY_CATEGORIES_ON_MENU %}
 														{% for cat, null in categories %}
 															<li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
 														{% endfor %}
-													{% endif %}
 												{% endif %}
 											</ul>
 										</nav>
