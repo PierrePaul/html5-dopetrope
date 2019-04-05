@@ -1,9 +1,9 @@
-### html5up-dopetrope
+# html5up-dopetrope
 
-[Pelican] [1] theme based on html5up-dopetrope design.
+[Pelican][1] theme based on html5up-dopetrope design.
 
 ## Preview
-![] [2]
+![][2]
 
 ## Variables
 
@@ -24,7 +24,7 @@ Optional variables are available for this theme :
 
 ## License
 
-[Creative Commons Attribution 3.0 Unported] [3]
+[Creative Commons Attribution 3.0 Unported][3]
 
   [1]: https://github.com/getpelican/pelican/ "Pelican"
   [2]: https://raw.github.com/PierrePaul/html5-dopetrope/master/screenshot.png
