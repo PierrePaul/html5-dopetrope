@@ -1,4 +1,4 @@
-### html5up-dopetrope
+# html5up-dopetrope
 
 [Pelican][1] theme based on html5up-dopetrope design.
 
